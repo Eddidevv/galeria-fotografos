@@ -1,0 +1,418 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;  
+}
+
+  
+  :root {
+    --primary-color: #111111;
+    --secondary-color: #f19900;
+    --text-color: #ffffff;
+    --overlay-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+  }
+  
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    min-height: 15vh;
+    width: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .head_left a {
+    text-decoration: none;
+    font-size: clamp(20px, 4vw, 24px);
+    font-weight: 300;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .head_right {
+    display: flex;
+    gap: clamp(10px, 2vw, 20px);
+  }
+  
+  .head_right button {
+    padding: 5px 10px;
+    font-size: clamp(14px, 2vw, 15px);
+    border: none;
+    background-color: transparent;
+    color: var(--text-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+    white-space: nowrap;
+  }
+  
+  .head_right button:hover {
+    border-bottom: 1px solid var(--secondary-color);
+  }
+  
+  main {
+    margin-top: 15vh;
+  }
+  
+  .hero {
+    min-height: 85vh;
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: clamp(20px, 4vw, 60px);
+    display: flex;
+    align-items: center;
+  }
+  
+  .background {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: clamp(20px, 4vw, 40px);
+    flex-wrap: wrap;
+  }
+  
+  .bg-left {
+    width: 100%;
+    max-width: 600px;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .bg-left h1 {
+    font-size: clamp(36px, 6vw, 60px);
+    margin-bottom: clamp(20px, 4vw, 40px);
+    font-weight: bold;
+  }
+  
+  .bg-left-children p {
+    font-size: clamp(16px, 3vw, 20px);
+    line-height: 1.6;
+    max-width: 500px;
+    margin-left: clamp(0px, 15%, 15%);
+    margin-bottom: clamp(20px, 4vw, 40px);
+    font-weight: 400;
+  }
+  
+  .btn button {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 30px);
+    font-size: clamp(16px, 3vw, 18px);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: clamp(0px, 15%, 15%);
+  }
+  
+  .btn button:hover {
+    background-color: darkorange;
+  }
+  
+  .bg-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    min-width: 280px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .bg-right img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .photo-stack {
+    position: absolute;
+    bottom: -150px;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .polaroid {
+    width: clamp(140px, 30vw, 180px);
+    background: white;
+    padding: 15px 15px 40px 15px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  
+  .polaroid img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .polaroid-1 {
+    transform: rotate(-10deg);
+  }
+  
+  .polaroid-2 {
+    transform: rotate(8deg);
+  }
+  
+  .polaroid:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 10;
+  }
+  
+  .about, .portfolio {
+    padding: clamp(40px, 8vw, 100px) clamp(20px, 4vw, 60px);
+    background-color: var(--primary-color);
+  }
+  
+  .about h2, .portfolio h2 {
+    font-size: clamp(28px, 5vw, 40px);
+    text-align: center;
+    margin-bottom: clamp(30px, 6vw, 60px);
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .about h2::after, .portfolio h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
+  }
+  
+  .about-content {
+    display: flex;
+    gap: clamp(20px, 4vw, 60px);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .about-image {
+    flex: 1;
+    min-width: 280px;
+  }
+  
+  .about-image img {
+    width: 100%;
+    max-height: 60vh; /* Usa 60% da altura da tela */
+    height: auto;
+    aspect-ratio: 3/4; /* Mantém proporção retrato (ajuste conforme necessidade) */
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    object-fit: contain; /* Mostra imagem inteira sem cortar */
+}
+  
+  .about-text {
+    flex: 1;
+    min-width: 280px;
+  }
+  
+  .about-text p {
+    font-size: 25px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+  }
+  
+  .consultation-btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .consultation-btn:hover {
+    background-color: darkorange;
+  }
+  
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 3/4;
+  }
+  
+  .portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+  }
+  
+  .portfolio-item:hover img {
+    transform: scale(1.1);
+  }
+  
+  .portfolio-overlay h3 {
+    color: var(--text-color);
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .portfolio-overlay button {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .portfolio-overlay button:hover {
+    background-color: darkorange;
+  }
+  
+  footer {
+    background-color: #171717;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer-content p {
+    color: var(--text-color);
+    font-size: clamp(12px, 2vw, 14px);
+    margin: 0;
+  }
+  
+  @media (max-width: 1024px) {
+    .background {
+      flex-direction: column;
+    }
+    
+    .bg-left {
+      text-align: center;
+    }
+    
+    .bg-left-children p,
+    .btn button {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .about-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .head_right {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .photo-stack {
+      position: relative;
+      bottom: -30px;
+      flex-wrap: wrap;
+    }
+    
+    main {
+      margin-top: 20vh;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero {
+      padding: 20px;
+    }
+    
+    .bg-left h1 {
+      font-size: 32px;
+    }
+    
+    .bg-left-children p {
+      font-size: 16px;
+      padding: 0 10px;
+    }
+    
+    .photo-stack {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .polaroid {
+      transform: none !important;
+    }
+    
+    .polaroid:hover {
+      transform: scale(1.05) !important;
+    }
+    
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+  }

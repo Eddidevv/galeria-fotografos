@@ -1,0 +1,342 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;  
+}
+
+:root {
+    --a-color:#111111;
+    --b-color: #0D0D0D;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 15vh;
+    width: 100%;
+    background-color: #111111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    flex-shrink: 0;
+}
+
+.head_left a {
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: 300;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.head_right {
+    display: flex;
+    gap: 20px;
+}
+
+.head_right button {
+    padding: 5px 10px;
+    font-size: 18px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.head_right button:hover {
+    border-bottom: 1px solid #f19900;
+}
+
+section {
+    flex: 1 1 auto;
+    width: 100%;
+    background-color: #111111;
+    padding: 30px 50px;
+    display: flex;
+    align-items: center;
+    min-height: 0;
+}
+
+.background {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Novos estilos para ícones */
+.social-icons {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+    margin-left: 5%;
+}
+
+.social-icons a {
+    color: #f19900;
+    font-size: 32px;
+    transition: all 0.3s ease;
+
+
+}
+
+.social-icons a:hover {
+    color: darkorange;
+    transform: translateY(-3px);
+    
+}
+
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+    .social-icons {
+        margin-left: 0;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .social-icons a {
+        font-size: 28px;
+    }
+}
+
+.bg-left {
+    width: 50%;
+    min-width: 300px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bg-left h1 {
+    font-size: 80px;
+    margin: -15px 0 15px 0;
+    font-weight: bold;
+    position: relative;
+    top: -20px;
+    margin-left: 5%;
+
+}
+
+.bg-left-children p {
+    font-size: 20px;
+    line-height: 1.4;
+    max-width: 500px;
+    margin-left: 5%;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.btn button {
+    background-color: #f19900;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 5%;
+}
+
+.btn button:hover {
+    background-color: darkorange;
+}
+
+.bg-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    min-width: 300px;
+    margin-bottom: 20px;
+}
+
+.bg-right img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.photo-stack {
+    position: absolute;
+    bottom: -30px;
+    left: 150px;
+    width: 100%;
+    z-index: 5;
+}
+
+.polaroid {
+    width: 180px;
+    background: white;
+    padding: 15px 15px 40px 15px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+.polaroid img {
+    width: 100%;
+    display: block;
+}
+
+.polaroid-1 {
+    bottom: 0;
+    left: 30px;
+    transform: rotate(-8deg);
+}
+
+.polaroid-2 {
+    bottom: 20px;
+    left: 180px;
+    transform: rotate(6deg);
+}
+
+.polaroid:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 10;
+}
+
+footer {
+    height: 10vh;
+    width: 100%;
+    background-color: #171717;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.footer-content p {
+    color: #ffffff;
+    font-size: 14px;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .bg-left {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .bg-right {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .bg-left-children p,
+    .btn button {
+        margin-left: 0;
+    }
+    
+    .photo-stack {
+        bottom: -20px;
+    }
+    
+    section {
+        padding: 20px 30px;
+    }
+    
+    .polaroid-1 {
+        left: 20px;
+    }
+    
+    .polaroid-2 {
+        left: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bg-left h1 {
+        font-size: 35px;
+        top: -10px;
+        margin: -10px 0 10px 0;
+    }
+    
+    header {
+        flex-direction: column;
+        padding: 15px;
+        height: auto;
+    }
+    
+    .head_left {
+        margin-bottom: 15px;
+    }
+    
+    .bg-left-children p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .btn button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+    
+    .photo-stack {
+        bottom: -15px;
+        left: 10px;
+    }
+    
+    .polaroid {
+        width: 130px;
+        padding: 10px 10px 30px 10px;
+    }
+    
+    .polaroid-1 {
+        left: 10px;
+        transform: rotate(-5deg);
+        margin-right: 20px;
+    }
+    
+    .polaroid-2 {
+        left: 100px;
+        transform: rotate(4deg);
+    }
+    
+    section {
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bg-left h1 {
+        font-size: 28px;
+        top: -5px;
+    }
+    
+    .polaroid {
+        width: 110px;
+    }
+    
+    .polaroid-2 {
+        left: 80px;
+    }
+    
+    .btn button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
