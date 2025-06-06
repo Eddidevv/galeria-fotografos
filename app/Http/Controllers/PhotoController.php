@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Photo;
 
 class PhotoController extends Controller
 {
+
+
+
+    public function index()
+    {
+        $photos = \App\Models\Photo::latest()->get();
+        return view('admin-paste.admin', compact('photos'));
+
+    }
+
+
     public function store(Request $request)
     {
         // Valida os dados do formulário
@@ -57,4 +69,17 @@ class PhotoController extends Controller
         return redirect('admin')->with('msg', 'Upload de imagem realizado com sucesso!');
     }
     
+
+    public function destroy(Photo $photo)
+    {
+        // Apaga o arquivo do storage
+        if ($photo->path && file_exists(public_path($photo->path))) {
+        unlink(public_path($photo->path));
+        }
+
+        $photo->delete();
+
+        return redirect()->back()->with('success', 'Foto deletada com sucesso!');
+    }
+
 }
